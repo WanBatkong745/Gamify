@@ -1,0 +1,12 @@
+{
+    "stats": [
+        {
+            "name": "physical",
+            "xp": 10
+        },
+        {
+            "name": "mental",
+            "xp": 23
+        }
+    ]
+}
