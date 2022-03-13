@@ -7,7 +7,8 @@ from .functions import *
 
 
 def Script():
-    t = task.Task("jumping", "physical + 4")
+    attributes = ["physical + 4", "health + 7", ]
+    t = task.Task("jumping", *attributes)
     
     
     '''while True:
