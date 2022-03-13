@@ -1,3 +1,9 @@
 {
-    "tasks": []
+    "tasks": [{
+        "name": "jumping",
+        "stats": [{
+            "stat name": "physical",
+            "stat increase": "4"
+        }]
+    }]
 }

@@ -1,3 +1,3 @@
 from .clear_screen import *
-from .delay_print import *
-from .delay_input import *
+from .typing_print import *
+from .typing_input import *

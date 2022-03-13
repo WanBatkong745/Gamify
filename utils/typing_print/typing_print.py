@@ -1,7 +1,7 @@
 import time
 import sys
 
-def delay_print(s):
+def typing_print(s):
     for c in s:
         sys.stdout.write(c)
         sys.stdout.flush()
