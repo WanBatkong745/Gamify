@@ -12,20 +12,43 @@ class Task:
 
         with open('docs/functions/task/config.json', 'r+') as taskJson:
             taskdata = json.load(taskJson)
-            statlst = []
-            for stat in stats:
-                values = stat.split(' + ')
-                statname = values[0]
-                statincrease = values[1]
-                tstats = {
-                    "stat name": statname,
-                    "stat increase": statincrease,
+            if taskdata['tasks'] == []:
+                statlst = []
+                for stat in stats:
+                    values = stat.split(' + ')
+                    statname = values[0]
+                    statincrease = values[1]
+                    tstats = {
+                        "stat name": statname,
+                        "stat increase": statincrease,
+                    }
+                    statlst.append(tstats)
+                newtask = {
+                    "name": self.name,
+                    "stats": [statlst]
                 }
-                statlst.append(tstats)
-            newtask = {
-                "name": self.name,
-                "stats": [statlst]
-            }
-            taskdata["tasks"].append(newtask)
-            taskJson.seek(0)
-            json.dump(taskdata, taskJson, indent=4)
+                taskdata["tasks"].append(newtask)
+                taskJson.seek(0)
+                json.dump(taskdata, taskJson, indent=4)
+            else:
+                for item in taskdata['tasks']:
+                    if item['name'] == name:
+                        print("This task already exists.")
+                    else:
+                        statlst = []
+                        for stat in stats:
+                            values = stat.split(' + ')
+                            statname = values[0]
+                            statincrease = values[1]
+                            tstats = {
+                                "stat name": statname,
+                                "stat increase": statincrease,
+                            }
+                            statlst.append(tstats)
+                        newtask = {
+                            "name": self.name,
+                            "stats": [statlst]
+                        }
+                        taskdata["tasks"].append(newtask)
+                        taskJson.seek(0)
+                        json.dump(taskdata, taskJson, indent=4)
