@@ -1,16 +1,13 @@
 import json
 
 class Stat:
-    def __init__(self, name, xp):
+    def __init__(self, name):
         self.name = name
-        self.xp = xp
-    
-    def create_stat(self):
         with open('docs/functions/stat/config.json', 'r+') as statJson:
             statdata = json.load(statJson)
             newtask = {
                 "name": self.name,
-                "xp": self.xp
+                "xp": 0
             }
             statdata["stats"].append(newtask)
             statJson.seek(0)
@@ -20,7 +17,7 @@ class Stat:
         with open('docs/functions/stat/config.json', 'r+') as statJson:
             statdata = json.load(statJson)
             for item in statdata['stats']:
-                if item['name'] == statname:
-                    item['xp'] += amt
+                if item["name"] == statname:
+                    item["xp"] += amt
                     statJson.seek(0)
                     json.dump(statdata, statJson, indent=4)

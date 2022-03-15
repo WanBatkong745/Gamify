@@ -1,16 +1,12 @@
 {
     "tasks": [
         {
-            "name": "jumping",
+            "name": "Reading",
             "stats": [
                 [
                     {
-                        "stat name": "physical",
-                        "stat increase": "4"
-                    },
-                    {
-                        "stat name": "health",
-                        "stat increase": "7"
+                        "stat name": "mental",
+                        "stat xp increase": "3"
                     }
                 ]
             ]
